@@ -8,7 +8,8 @@ This project demonstrates test case design and implementation for a Login Page. 
 
 ### TC_01 – Valid Login
 - Enter correct username and password
-- Expected: User logged in successfully
+- Click login
+- Expected: User is redirected to dashboard page
 
 ### TC_02 – Invalid Login
 - Enter incorrect credentials
