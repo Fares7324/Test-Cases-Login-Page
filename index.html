@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+</head>
+<body>
+
+<h2>Login</h2>
+<input type="text" id="username" placeholder="Username"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
+<button onclick="login()">Login</button>
+<p id="message"></p>
+
+<script>
+function login() {
+  let user = document.getElementById("username").value;
+  let pass = document.getElementById("password").value;
+  let msg = document.getElementById("message");
+
+  // Empty fields
+  if (user === "" || pass === "") {
+    msg.innerText = "Fields cannot be empty";
+    return;
+  }
+
+  // Password length (Task 2)
+  if (pass.length < 8 || pass.length > 12) {
+    msg.innerText = "Password must be 8-12 characters";
+    return;
+  }
+
+  // SQL Injection check
+  if (user.includes("'") || user.toLowerCase().includes("or")) {
+    msg.innerText = "Invalid input detected";
+    return;
+  }
+
+  // Valid login
+  if (user === "admin" && pass === "12345678") {
+    msg.innerText = "Login successful! Redirecting...";
+  } else {
+    msg.innerText = "Invalid credentials";
+  }
+}
+</script>
+
+</body>
+</html>
